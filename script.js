@@ -375,7 +375,7 @@ function renderDashboard() {
         item.className = `flex items-center justify-between p-4 mb-3 bg-white rounded-lg shadow-sm item-card ${producto.consumido ? 'consumido' : ''}`;
         item.innerHTML = `
           <div class="flex items-center">
-            <span class="text-lg text-gray-700">${producto.icono} ${producto.nombre} (${producto.cantidad})</span>
+            <span class="text-lg text-gray-700">${producto.nombre} (${producto.cantidad})</span>
           </div>
           <div class="flex items-center">
             <span class="text-sm mr-4 ${dias <= 3 ? 'text-red-500' : dias <= 7 ? 'text-yellow-500' : 'text-green-500'}">${producto.fecha}</span>
