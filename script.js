@@ -4,10 +4,10 @@
         usuario: 'cliente', 
         contrasena: '1234', 
         inventario: [
-          { icono: '🥛', nombre: 'Leche', cantidad: '1', fecha: '2025-06-15', consumido: false },
-          { icono: '🍞', nombre: 'Pan', cantidad: '1', fecha: '2025-06-17', consumido: false },
-          { icono: '🍎', nombre: 'Manzanas', cantidad: '5', fecha: '2025-06-21', consumido: false },
-          { icono: '🥕', nombre: 'Zanahorias', cantidad: '8', fecha: '2025-06-23', consumido: false }
+          { nombre: 'Leche', cantidad: '1', fecha: '2025-06-15', consumido: false },
+          { nombre: 'Pan', cantidad: '1', fecha: '2025-06-17', consumido: false },
+          { nombre: 'Manzanas', cantidad: '5', fecha: '2025-06-21', consumido: false },
+          { nombre: 'Zanahorias', cantidad: '8', fecha: '2025-06-23', consumido: false }
         ],
         notificaciones: [
           { tipo: 'warning', mensaje: 'La leche caduca en 3 días', fecha: '2025-06-12' },
@@ -379,8 +379,8 @@ function renderDashboard() {
           </div>
           <div class="flex items-center">
             <span class="text-sm mr-4 ${dias <= 3 ? 'text-red-500' : dias <= 7 ? 'text-yellow-500' : 'text-green-500'}">${producto.fecha}</span>
-            <button onclick="abrirModal(${index})" class="text-blue-500 mr-2">✏️</button>
-            <button onclick="abrirDeleteModal(${index})" class="text-red-500">🗑️</button>
+            <button onclick="abrirModal(${index})" class="text-blue-500 mr-2">editar</button>
+            <button onclick="abrirDeleteModal(${index})" class="text-red-500">borrar</button>
           </div>
         `;
         contenedor.appendChild(item);
@@ -394,7 +394,6 @@ function renderDashboard() {
 
       if (nombre && cantidad && fecha) {
         inventario.push({ 
-          icono: '🍽️', 
           nombre, 
           cantidad, 
           fecha, 
@@ -440,7 +439,6 @@ function renderDashboard() {
       header.innerHTML = `
         <div class="flex justify-between items-center">
           <h1 class="text-3xl font-bold text-gray-800">Notificaciones</h1>
-          <button class="text-2xl" onclick="navigateTo('dashboard')">⬅️</button>
         </div>
         <p class="text-gray-600 mt-2">Tus alertas y actividades recientes</p>
       `;
@@ -477,7 +475,6 @@ function renderDashboard() {
       header.innerHTML = `
         <div class="flex justify-between items-center">
           <h1 class="text-3xl font-bold text-gray-800">Perfil de Usuario</h1>
-          <button class="text-2xl" onclick="navigateTo('dashboard')">⬅️</button>
         </div>
       `;
       contenedor.appendChild(header);
@@ -598,7 +595,6 @@ function renderDashboard() {
         <div class="mb-6">
           <div class="flex justify-between items-center mb-4">
             <h2 class="text-2xl font-bold text-gray-800">Inventario</h2>
-            <button class="text-2xl" onclick="navigateTo('dashboard')">⬅️</button>
           </div>
           <div id="listaInventario" class="space-y-4"></div>
           <div class="bg-white p-4 rounded shadow space-y-4 mt-6">
