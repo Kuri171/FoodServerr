@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodSaver</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Pantallas -->
+  <div id="login" class="screen p-6"></div>
+  <div id="register" class="screen hidden p-6"></div>
+  <div id="dashboard" class="screen hidden p-6"></div>
+  <div id="inventory" class="screen hidden p-6"></div>
+  <div id="alerts" class="screen hidden p-6"></div>
+  <div id="profile" class="screen hidden p-6"></div>
+
+  <!-- Modal para editar producto -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h3 class="text-xl font-semibold mb-4">Editar Producto</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-gray-700">Nombre</label>
+          <input type="text" id="editNombre" class="w-full p-2 border rounded">
+        </div>
+        <div>
+          <label class="block text-gray-700">Cantidad</label>
+          <input type="text" id="editCantidad" class="w-full p-2 border rounded">
+        </div>
+        <div>
+          <label class="block text-gray-700">Fecha</label>
+          <input type="date" id="editFecha" class="w-full p-2 border rounded">
+        </div>
+        <div class="flex justify-end space-x-2">
+          <button onclick="cerrarModal()" class="px-4 py-2 border rounded">Cancelar</button>
+          <button onclick="guardarEdicion()" class="bg-green-600 text-white px-4 py-2 rounded">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para confirmar eliminación -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3 class="text-xl font-semibold mb-4">Confirmar Eliminación</h3>
+      <p class="mb-6" id="deleteMessage">¿Estás seguro de que deseas eliminar este producto?</p>
+      <div class="flex justify-end space-x-2">
+        <button onclick="cerrarDeleteModal()" class="px-4 py-2 border rounded">Cancelar</button>
+        <button onclick="confirmarEliminacion()" class="bg-red-600 text-white px-4 py-2 rounded">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificaciones -->
+  <div id="notification" class="notification hidden"></div>
+
+  <!-- Menú Inferior -->
+  <div id="menuInferior" class="fixed bottom-0 left-0 right-0 bg-white shadow-md flex justify-around py-4 hidden">
+    <button class="menu-button flex flex-col items-center text-green-600" data-screen="dashboard" onclick="navigateTo('dashboard')">
+      <span class="text-2xl"><i class="fas fa-home"></i></span>
+      <span class="text-xs">Inicio</span>
+    </button>
+    <button class="menu-button flex flex-col items-center" data-screen="inventory" onclick="navigateTo('inventory')">
+      <span class="text-2xl"><i class="fas fa-box-open"></i></span>
+      <span class="text-xs">Inventario</span>
+    </button>
+    <button class="flex flex-col items-center" onclick="navigateTo('alerts')">
+      <span class="text-2xl"><i class="fas fa-bell"></i></span>
+      <span class="text-xs">Alertas</span>
+    </button>
+    <button class="menu-button flex flex-col items-center" data-screen="profile" onclick="navigateTo('profile')">
+      <span class="text-2xl"><i class="fas fa-user"></i> </span>
+      <span class="text-xs">Perfil</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
