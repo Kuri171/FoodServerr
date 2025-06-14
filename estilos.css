@@ -1,3 +1,219 @@
+/* Estilos base */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    display: fle !important;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-menu a.active {
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hero-btn {
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-outline {
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    background: none;
+}
+
+/* Estilos para la sección de características */
+.features-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.features-header {
+    max-width: 800px; /* Controla el ancho del texto */
+    margin-bottom: 40px;
+    text-align: left; /* Alineación izquierda */
+}
+
+.section-tag {
+    display: block;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.features-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: left; /* Alineación izquierda */
+}
+
+.features-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: right; /* Alineación izquierda */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: left; /* Alineación izquierda */
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 60px 0;
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.testimonials p.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.screen {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;  
+    padding-bottom: 70px;
+    display: none; /* Asegura que estén ocultas inicialmente */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.screen:not(.hidden) {
+    display: block; /* Muestra solo la pantalla activa */
+}
+
+#menuInferior {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+
 .item-card {
       transition: all 0.3s ease;
     }
