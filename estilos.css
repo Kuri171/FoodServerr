@@ -183,7 +183,7 @@ header {
 }
 
 .stars {
-    color: #FFD700;
+    color: #cab434;
     font-size: 20px;
     margin-bottom: 15px;
 }
@@ -211,6 +211,7 @@ header {
     left: 0;
     right: 0;
     z-index: 1100; /* Asegúrate de que esté por encima de otros elementos */
+    display: none;
 }
 
 

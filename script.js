@@ -209,11 +209,14 @@ function navigateTo(screen) {
   });
   
   // Muestra solo la pantalla solicitada
-document.body.style.overflow = '';
+  document.body.style.overflow = '';
   const target = document.getElementById(screen);
   if (target) {
     target.classList.remove('hidden');
   }
+
+    // Actualiza la pantalla actual
+  currentScreen = screen;
   
   // Control de visibilidad de la landing page
   const landingElements = document.querySelectorAll('header, section, footer');
@@ -236,6 +239,23 @@ document.body.style.overflow = '';
     case 'alerts': renderAlerts(); break;
     case 'profile': renderProfile(); break;
   }
+  updateActiveMenu()
+}
+
+
+function showLandingPage() {
+  // Oculta todas las pantallas de la app (login, register, etc.)
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.add('hidden');
+  });
+  
+  // Muestra la landing page (header, hero, features, footer)
+  document.querySelectorAll('header, section, footer').forEach(el => {
+    el.style.display = 'block';
+  });
+  
+  // Oculta el menú inferior (si está visible)
+  document.getElementById('menuInferior').style.display = 'none';
 }
 
 function updateActiveMenu() {
@@ -278,8 +298,7 @@ function renderDashboard() {
   header.innerHTML = `
     <h1 class="text-6xl font-bold text-green-600">FoodSaver</h1>
     <p class="text-gray-600 mt-2">menú principal</p>
-    <h2 class="text-xl font-semibold mt-6 mb-4 text-gray-700">Saquen del equipo a sam</h2>
-    <h3 class="text-lg font-medium text-gray-700 mb-3">Inventario</h3>
+    <h2 class="text-xl font-semibold mt-6 mb-4 text-gray-700">Inventario</h2>
   `;
   contenedor.appendChild(header);
 
@@ -521,7 +540,7 @@ function renderProfile() {
       </div>
       <div class="flex justify-between">
         <span class="text-gray-600">Correo electrónico:</span>
-        <span class="font-medium">${usuarioActual?.usuario || 'usuario'}@foodsaver.com</span>
+        <span class="font-medium">${usuarioActual?.usuario || 'usuario'}@gnmail.com</span>
       </div>
       <div class="flex justify-between">
         <span class="text-gray-600">Miembro desde:</span>
@@ -577,6 +596,7 @@ function renderProfile() {
 }
 
 window.onload = () => {
+  document.getElementById('menuInferior').style.display = 'none';
   // Pantalla de login
   document.getElementById('login').innerHTML = `
     <div class="h-screen flex flex-col justify-center items-center space-y-4">
@@ -588,7 +608,8 @@ window.onload = () => {
         <button onclick="login()" class="w-full bg-green-600 text-white px-4 py-2 rounded">Iniciar sesión</button>
         <button onclick="navigateTo('register')" class="w-full mt-3 text-green-600 underline">Crear cuenta</button>
         <div class="mt-4 text-sm text-gray-500 text-center">
-          Usuario predeterminado: cliente / 1234
+          Usuario predeterminado: cliente contraseña: 1234
+        <button onclick="showLandingPage()" class="w-full mt-3 text-gray-600 underline">Volver al inicio</button>
         </div>
       </div>
     </div>
